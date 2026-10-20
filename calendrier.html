@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendrier — Léman Renault Sport</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080808; --surface: #101010; --surface-2: #161616;
+  --fg: #ffffff; --muted: #6e6e6e; --border: #1e1e1e; --accent: #f1ff00;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--fg); font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 64px;
+  display: flex; align-items: center; padding: 0 48px;
+  background: rgba(8,8,8,0.9); backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px; margin-right: auto;
+  font-family: 'Oswald', sans-serif; font-size: 17px; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg); text-decoration: none;
+}
+.logo-badge {
+  width: 30px; height: 30px; background: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  clip-path: polygon(0 0, 80% 0, 100% 50%, 80% 100%, 0 100%);
+}
+.logo-badge span { font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 700; color: #000; }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a {
+  font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 400;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--fg); }
+.nav-links a.active { color: var(--accent); }
+.nav-join {
+  margin-left: 28px; padding: 9px 22px; background: var(--accent); color: #000;
+  font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: background 0.2s;
+}
+.nav-join:hover { background: #fff; }
+
+/* PAGE HEADER */
+.page-header {
+  padding: 140px 0 72px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.eyebrow {
+  font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 400;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--accent);
+  margin-bottom: 10px; display: flex; align-items: center; gap: 10px;
+}
+.eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--accent); }
+.page-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(40px, 6vw, 72px); font-weight: 700;
+  text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.9;
+}
+
+/* FILTER BAR */
+.filter-bar {
+  background: var(--bg); padding: 20px 0;
+  border-bottom: 1px solid var(--border); position: sticky; top: 64px; z-index: 100;
+}
+.filter-inner {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.filter-btn {
+  padding: 7px 16px;
+  background: transparent; border: 1px solid var(--border); color: var(--muted);
+  font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 400;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  cursor: pointer; transition: all 0.2s;
+}
+.filter-btn:hover { border-color: rgba(255,255,255,0.3); color: var(--fg); }
+.filter-btn.on { border-color: var(--accent); color: var(--accent); background: rgba(241,255,0,0.06); }
+
+/* EVENTS LIST */
+.events-section { padding: 56px 0 96px; }
+
+.month-group { margin-bottom: 56px; }
+.month-label {
+  font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted);
+  padding-bottom: 12px; border-bottom: 1px solid var(--border); margin-bottom: 20px;
+}
+.event-row {
+  display: grid; grid-template-columns: 80px 1fr auto;
+  align-items: start; gap: 24px;
+  padding: 24px 0; border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.event-row:hover { background: var(--surface); }
+.event-row:hover .event-row-inner { transform: translateX(4px); }
+.ev-date-block {
+  text-align: center; padding-top: 2px;
+}
+.ev-day {
+  font-family: 'Oswald', sans-serif; font-size: 36px; font-weight: 700;
+  color: var(--accent); line-height: 1;
+}
+.ev-month-sm {
+  font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 400;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+}
+.event-row-inner { transition: transform 0.2s; }
+.ev-type-tag {
+  display: inline-block; margin-bottom: 6px;
+  padding: 3px 9px;
+  font-size: 9px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+}
+.tag-balade { background: rgba(241,255,0,0.1); color: var(--accent); }
+.tag-circuit { background: rgba(237,28,36,0.12); color: #f86; }
+.tag-rassemblement { background: rgba(0,136,203,0.12); color: #6bf; }
+.tag-soiree { background: rgba(128,0,255,0.12); color: #b97fff; }
+.ev-title {
+  font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 4px;
+}
+.ev-meta { font-size: 13px; color: var(--muted); }
+.ev-meta strong { color: rgba(255,255,255,0.6); font-weight: 400; }
+.ev-action {
+  align-self: center;
+  padding: 9px 18px;
+  border: 1px solid var(--border); color: var(--muted);
+  font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 400;
+  letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none;
+  white-space: nowrap; transition: all 0.2s; flex-shrink: 0;
+}
+.ev-action:hover { border-color: var(--accent); color: var(--accent); }
+.ev-past .ev-day { color: var(--muted); }
+.ev-past .ev-title { color: rgba(255,255,255,0.5); }
+
+/* FOOTER */
+footer {
+  background: #040404; border-top: 1px solid var(--border); padding: 48px 48px 24px;
+}
+.footer-bottom {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-bottom p { font-size: 11px; color: rgba(255,255,255,0.18); }
+.footer-bottom a { font-size: 11px; color: rgba(255,255,255,0.22); text-decoration: none; }
+
+@media (max-width: 768px) {
+  nav { padding: 0 24px; }
+  .container { padding: 0 24px; }
+  .page-header { padding: 112px 0 48px; }
+  .event-row { grid-template-columns: 60px 1fr; }
+  .ev-action { display: none; }
+  footer { padding: 40px 24px 20px; }
+  .filter-bar { padding: 16px 0; }
+}
+</style>
+</head>
+<body>
+
+<nav data-od-id="nav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-badge"><span>LRS</span></div>
+    Léman Renault Sport
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="calendrier.html" class="active">Calendrier</a></li>
+    <li><a href="notre-structure.html">Le Club</a></li>
+    <li><a href="reglements.html">Règlement</a></li>
+    <li><a href="partenaires.html">Partenaires</a></li>
+  </ul>
+  <a href="nous-rejoindre.html" class="nav-join">Nous Rejoindre</a>
+</nav>
+
+<div class="page-header" data-od-id="page-header">
+  <div class="container">
+    <p class="eyebrow">Agenda 2026–2027</p>
+    <h1 class="page-title">Calendrier<br>des événements</h1>
+  </div>
+</div>
+
+<div class="filter-bar" data-od-id="filter-bar">
+  <div class="container">
+    <div class="filter-inner">
+      <button class="filter-btn on">Tous</button>
+      <button class="filter-btn">Balades</button>
+      <button class="filter-btn">Circuit</button>
+      <button class="filter-btn">Rassemblements</button>
+      <button class="filter-btn">Soirées</button>
+    </div>
+  </div>
+</div>
+
+<div class="events-section">
+  <div class="container">
+    <div id="events-dynamic"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <p>© 2026 Léman Renault Sport · Association loi 1901</p>
+    <a href="#">Conditions générales</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var MONTHS = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+  var MONTHS_SH = ['Jan.','Fév.','Mar.','Avr.','Mai','Juin','Juil.','Août','Sep.','Oct.','Nov.','Déc.'];
+  var TC = { balade:'tag-balade', circuit:'tag-circuit', rassemblement:'tag-rassemblement', soiree:'tag-soiree' };
+  var TL = { balade:'Balade', circuit:'Circuit', rassemblement:'Rassemblement', soiree:'Soirée' };
+  var AL = { balade:'Détails', circuit:'S\'inscrire', rassemblement:'Détails', soiree:'Réserver' };
+
+  var DEFAULT = [
+    { id:'e1', titre:'Balade Automnale des Aravis', date:'2026-11-15', heure:'08h30', lieu:'Annecy → Plateau des Aravis → La Clusaz', type:'balade', description:'', places_max:null },
+    { id:'e2', titre:'Assemblée Générale Annuelle', date:'2026-12-06', heure:'14h00', lieu:'Thonon-les-Bains — Salle de l\'Association', type:'rassemblement', description:'', places_max:null },
+    { id:'e3', titre:'Repas de Fin d\'Année', date:'2026-12-13', heure:'19h30', lieu:'Restaurant Le Léman, Thonon-les-Bains', type:'soiree', description:'Membres & invités', places_max:40 },
+    { id:'e4', titre:'Ouverture de Saison — Circuit de Bresse', date:'2027-04-12', heure:'08h00–18h00', lieu:'Circuit de Bresse, Lons-le-Saunier', type:'circuit', description:'', places_max:20 },
+    { id:'e5', titre:'Grandes Routes du Jura', date:'2027-05-03', heure:'', lieu:'Thonon → Pontarlier → Champagnole', type:'balade', description:'Journée complète', places_max:null }
+  ];
+
+  function load() {
+    try { var d = JSON.parse(localStorage.getItem('lrs_evenements')); return d && d.length ? d : DEFAULT; }
+    catch(e) { return DEFAULT; }
+  }
+
+  var all = load();
+  var filter = 'tous';
+
+  function render() {
+    var c = document.getElementById('events-dynamic');
+    var data = filter === 'tous' ? all : all.filter(function(e){ return e.type === filter; });
+    if (!data.length) { c.innerHTML = '<p style="color:var(--muted);padding:56px 0;text-align:center;">Aucun événement pour ce filtre.</p>'; return; }
+
+    var sorted = data.slice().sort(function(a,b){ return new Date(a.date) - new Date(b.date); });
+    var groups = {}, order = [];
+    var now = new Date();
+    sorted.forEach(function(ev) {
+      var d = new Date(ev.date); var k = d.getFullYear() + '-' + d.getMonth();
+      if (!groups[k]) { groups[k] = { label: MONTHS[d.getMonth()] + ' ' + d.getFullYear(), events:[] }; order.push(k); }
+      groups[k].events.push(ev);
+    });
+
+    var html = '';
+    order.forEach(function(k) {
+      var g = groups[k];
+      html += '<div class="month-group"><div class="month-label">' + g.label + '</div>';
+      g.events.forEach(function(ev) {
+        var d = new Date(ev.date);
+        var day = ('0' + d.getDate()).slice(-2);
+        var mon = MONTHS_SH[d.getMonth()];
+        var tc = TC[ev.type] || 'tag-balade';
+        var tl = TL[ev.type] || ev.type;
+        var al = AL[ev.type] || 'Détails';
+        var past = d < now ? ' ev-past' : '';
+        var meta = '<strong>' + ev.lieu + '</strong>';
+        if (ev.heure) meta += ' · ' + ev.heure;
+        if (ev.places_max) meta += ' · ' + ev.places_max + ' places max.';
+        if (ev.description) meta += ' · ' + ev.description;
+        html += '<div class="event-row' + past + '" data-type="' + ev.type + '">'
+          + '<div class="ev-date-block"><div class="ev-day">' + day + '</div><div class="ev-month-sm">' + mon + '</div></div>'
+          + '<div class="event-row-inner"><span class="ev-type-tag ' + tc + '">' + tl + '</span>'
+          + '<div class="ev-title">' + ev.titre + '</div><div class="ev-meta">' + meta + '</div></div>'
+          + '<a href="#" class="ev-action">' + al + '</a></div>';
+      });
+      html += '</div>';
+    });
+    c.innerHTML = html;
+  }
+
+  var filterMap = { 'Tous':'tous', 'Balades':'balade', 'Circuit':'circuit', 'Rassemblements':'rassemblement', 'Soirées':'soiree' };
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      filter = filterMap[btn.textContent.trim()] || 'tous';
+      render();
+    });
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

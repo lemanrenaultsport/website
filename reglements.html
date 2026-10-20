@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Règlement — Léman Renault Sport</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080808; --surface: #101010; --surface-2: #161616;
+  --fg: #ffffff; --muted: #6e6e6e; --border: #1e1e1e; --accent: #f1ff00;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--fg); font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; line-height: 1.6; }
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 64px; display: flex; align-items: center; padding: 0 48px; background: rgba(8,8,8,0.9); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.nav-logo { display: flex; align-items: center; gap: 10px; margin-right: auto; font-family: 'Oswald', sans-serif; font-size: 17px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg); text-decoration: none; }
+.logo-badge { width: 30px; height: 30px; background: var(--accent); display: flex; align-items: center; justify-content: center; clip-path: polygon(0 0, 80% 0, 100% 50%, 80% 100%, 0 100%); }
+.logo-badge span { font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 700; color: #000; }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a { font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--fg); }
+.nav-links a.active { color: var(--accent); }
+.nav-join { margin-left: 28px; padding: 9px 22px; background: var(--accent); color: #000; font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+.nav-join:hover { background: #fff; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.eyebrow { font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 0.32em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+.eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--accent); }
+
+.page-header { padding: 140px 0 72px; background: var(--surface); border-bottom: 1px solid var(--border); }
+.page-title { font-family: 'Oswald', sans-serif; font-size: clamp(40px, 6vw, 72px); font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.9; margin-bottom: 20px; }
+.page-lead { font-size: 15px; color: var(--muted); max-width: 560px; line-height: 1.75; }
+
+/* LAYOUT */
+.doc-layout { display: grid; grid-template-columns: 240px 1fr; gap: 64px; padding: 72px 0 96px; align-items: start; }
+.doc-toc { position: sticky; top: 80px; }
+.toc-label { font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+.toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+.toc-list li a {
+  display: block; padding: 7px 12px;
+  font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 400;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+  text-decoration: none; border-left: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.toc-list li a:hover { color: var(--fg); border-left-color: var(--border); }
+.toc-list li a.active { color: var(--accent); border-left-color: var(--accent); }
+
+/* CONTENT */
+.doc-content { max-width: 720px; }
+.doc-section { margin-bottom: 56px; padding-bottom: 56px; border-bottom: 1px solid var(--border); }
+.doc-section:last-child { border-bottom: none; }
+.doc-section-n { font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+.doc-section h2 { font-family: 'Oswald', sans-serif; font-size: 26px; font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 20px; }
+.doc-section p { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.8; margin-bottom: 14px; }
+.doc-section p:last-child { margin-bottom: 0; }
+.doc-section ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; padding-left: 4px; }
+.doc-section ul li { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.7; display: flex; align-items: flex-start; gap: 12px; }
+.doc-section ul li::before { content: '—'; color: var(--accent); flex-shrink: 0; font-family: 'Oswald', sans-serif; font-size: 12px; margin-top: 3px; }
+.doc-section strong { color: var(--fg); font-weight: 600; }
+.doc-note { margin-top: 20px; padding: 16px 20px; background: rgba(241,255,0,0.06); border-left: 3px solid var(--accent); }
+.doc-note p { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.7; }
+
+footer { background: #040404; border-top: 1px solid var(--border); padding: 32px 48px; }
+.footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.footer-bottom p { font-size: 11px; color: rgba(255,255,255,0.18); }
+.footer-bottom a { font-size: 11px; color: rgba(255,255,255,0.22); text-decoration: none; }
+
+@media (max-width: 900px) {
+  .doc-layout { grid-template-columns: 1fr; }
+  .doc-toc { display: none; }
+}
+@media (max-width: 768px) {
+  nav { padding: 0 24px; }
+  .container { padding: 0 24px; }
+  .page-header { padding: 112px 0 48px; }
+  footer { padding: 28px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav data-od-id="nav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-badge"><span>LRS</span></div>
+    Léman Renault Sport
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="calendrier.html">Calendrier</a></li>
+    <li><a href="notre-structure.html">Le Club</a></li>
+    <li><a href="reglements.html" class="active">Règlement</a></li>
+    <li><a href="partenaires.html">Partenaires</a></li>
+  </ul>
+  <a href="nous-rejoindre.html" class="nav-join">Nous Rejoindre</a>
+</nav>
+
+<div class="page-header" data-od-id="page-header">
+  <div class="container">
+    <p class="eyebrow">Statuts &amp; Règlement</p>
+    <h1 class="page-title">Règlement<br>de l'association</h1>
+    <p class="page-lead">Léman Renault Sport — Association loi 1901. Statuts et règlement intérieur en vigueur depuis la fondation en 2024.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="doc-layout">
+    <aside class="doc-toc" data-od-id="doc-toc">
+      <div class="toc-label">Sommaire</div>
+      <ul class="toc-list">
+        <li><a href="#art1" class="active">I. Esprit du club</a></li>
+        <li><a href="#art2">II. Participation</a></li>
+        <li><a href="#art3">III. Responsabilité</a></li>
+        <li><a href="#art4">IV. Respect des lieux</a></li>
+        <li><a href="#art5">V. Comportements interdits</a></li>
+        <li><a href="#art6">VI. Image &amp; communication</a></li>
+        <li><a href="#art7">VII. Acceptation</a></li>
+      </ul>
+    </aside>
+
+    <div class="doc-content" data-od-id="doc-content">
+
+      <div class="doc-section" id="art1">
+        <div class="doc-section-n">Article I</div>
+        <h2>Esprit du club</h2>
+        <p>Léman Renault Sport est une communauté fondée sur la passion partagée des véhicules Renault Sport et Alpine. La bienveillance, le respect mutuel et l'entraide constituent les valeurs fondamentales du club.</p>
+        <p>Chaque membre contribue à l'ambiance du groupe. Nous privilégions l'esprit de communauté à la compétition : nous roulons ensemble, partageons nos expériences et nous entraidons — que ce soit pour un conseil mécanique, la planification d'une balade ou l'organisation d'un événement.</p>
+        <div class="doc-note">
+          <p>Nous sommes un club, pas une organisation de course. La passion automobile est plus belle quand elle se partage.</p>
+        </div>
+      </div>
+
+      <div class="doc-section" id="art2">
+        <div class="doc-section-n">Article II</div>
+        <h2>Conditions de participation</h2>
+        <p>Pour intégrer le club et participer à ses événements, les conditions suivantes doivent être remplies :</p>
+        <ul>
+          <li>Être membre de l'association (inscription <strong>gratuite</strong>, validée par le bureau via Instagram DM)</li>
+          <li>Posséder un véhicule <strong>Renault Sport ou Alpine</strong> en état de marche — Clio RS, Mégane RS, A110, Twingo RS, R5 Turbo, 306 S16 et tous modèles à vocation sportive sont les bienvenus</li>
+          <li>Véhicule en règle : contrôle technique valide, assurance, immatriculation</li>
+          <li>Respecter les consignes de sécurité données par les organisateurs lors de chaque événement</li>
+          <li>Adopter un comportement respectueux envers les autres membres et les tiers</li>
+        </ul>
+      </div>
+
+      <div class="doc-section" id="art3">
+        <div class="doc-section-n">Article III</div>
+        <h2>Responsabilité individuelle</h2>
+        <p>Chaque membre est <strong>entièrement responsable</strong> de sa conduite et de son véhicule. Sur route ouverte, le Code de la route s'applique dans son intégralité, sans exception.</p>
+        <p>L'association décline toute responsabilité en cas d'accident, d'incident ou de dommage matériel survenu lors des sorties sur voie publique. Chaque participant roule sous sa propre responsabilité et celle de son assureur.</p>
+        <p>Lors des journées circuit, chaque participant doit signer une décharge de responsabilité et respecter strictement les consignes du gestionnaire du circuit.</p>
+        <div class="doc-note">
+          <p>Vérifiez que votre assurance couvre les journées circuit avant de participer — certains contrats nécessitent une extension spécifique.</p>
+        </div>
+      </div>
+
+      <div class="doc-section" id="art4">
+        <div class="doc-section-n">Article IV</div>
+        <h2>Respect des lieux et des riverains</h2>
+        <p>Les membres s'engagent à respecter les sites de rassemblement et leur environnement immédiat :</p>
+        <ul>
+          <li>Ne pas générer de nuisances sonores excessives, en particulier dans les zones résidentielles et à proximité des habitations</li>
+          <li>Laisser les lieux dans l'état dans lequel ils ont été trouvés — ramasser ses déchets, ne rien dégrader</li>
+          <li>Respecter la signalétique routière, les propriétés privées et les espaces naturels</li>
+          <li>Signaler immédiatement au bureau tout incident ou dommage causé à un tiers ou à un lieu</li>
+          <li>Faire preuve de courtoisie envers les riverains et les autres usagers de la route</li>
+        </ul>
+      </div>
+
+      <div class="doc-section" id="art5">
+        <div class="doc-section-n">Article V</div>
+        <h2>Comportements interdits</h2>
+        <p>Les comportements suivants sont <strong>strictement prohibés</strong> et entraînent l'exclusion immédiate de l'événement, ainsi qu'une possible exclusion définitive du club :</p>
+        <ul>
+          <li><strong>Burnouts, rodéos ou toute conduite dangereuse</strong> ou provocatrice sur voie publique</li>
+          <li><strong>Conduite sous l'influence de l'alcool</strong> ou de toute substance altérant les capacités</li>
+          <li>Comportements agressifs, intimidants ou irrespectueux envers d'autres membres, tiers ou riverains</li>
+          <li>Non-respect délibéré des consignes des organisateurs ou des règles de sécurité</li>
+          <li>Tout acte illégal commis dans le cadre d'une activité du club</li>
+        </ul>
+        <div class="doc-note">
+          <p>Ces comportements ternissent l'image du club, mettent en danger les autres et peuvent engager la responsabilité de l'association. Le bureau se réserve le droit d'exclure sans préavis tout contrevenant.</p>
+        </div>
+      </div>
+
+      <div class="doc-section" id="art6">
+        <div class="doc-section-n">Article VI</div>
+        <h2>Image et communication du club</h2>
+        <p>La représentation du club sur les réseaux sociaux et en public engage l'image de l'association :</p>
+        <ul>
+          <li>Toute publication impliquant le club doit respecter ses valeurs et son image positive</li>
+          <li>Il est interdit de partager des contenus illégaux, offensants ou susceptibles de nuire à la réputation du club ou à ses membres</li>
+          <li>Le compte Instagram officiel <strong>@lemanrenaultsport</strong> est géré exclusivement par le bureau</li>
+          <li>Toute communication officielle au nom du club nécessite l'accord préalable du bureau</li>
+        </ul>
+        <p>Les membres sont libres de partager leurs expériences personnelles et photos d'événements, dans le respect des règles ci-dessus et de la vie privée des autres participants.</p>
+      </div>
+
+      <div class="doc-section" id="art7">
+        <div class="doc-section-n">Article VII</div>
+        <h2>Acceptation du règlement</h2>
+        <p>L'adhésion au club vaut <strong>acceptation pleine et entière</strong> du présent règlement. Tout manquement peut entraîner, selon sa gravité :</p>
+        <ul>
+          <li>Un avertissement du bureau</li>
+          <li>L'exclusion temporaire des événements</li>
+          <li>L'exclusion définitive du club</li>
+        </ul>
+        <p>Le présent règlement peut être modifié par décision du bureau. Les membres seront informés de toute modification via le groupe WhatsApp et le compte Instagram du club.</p>
+        <p><em>Règlement adopté à Thonon-les-Bains, 2024. Dernière mise à jour : octobre 2026.</em></p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <p>© 2026 Léman Renault Sport · Association loi 1901</p>
+    <a href="#">Conditions générales</a>
+  </div>
+</footer>
+
+<script>
+const sections = document.querySelectorAll('.doc-section[id]');
+const tocLinks = document.querySelectorAll('.toc-list a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      tocLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.toc-list a[href="#${e.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-64px 0px -60% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

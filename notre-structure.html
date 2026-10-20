@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notre Structure — Léman Renault Sport</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root { --bg: #080808; --surface: #101010; --surface-2: #161616; --fg: #ffffff; --muted: #6e6e6e; --border: #1e1e1e; --accent: #f1ff00; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--fg); font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; line-height: 1.6; }
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 64px; display: flex; align-items: center; padding: 0 48px; background: rgba(8,8,8,0.9); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.nav-logo { display: flex; align-items: center; gap: 10px; margin-right: auto; font-family: 'Oswald', sans-serif; font-size: 17px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg); text-decoration: none; }
+.logo-badge { width: 30px; height: 30px; background: var(--accent); display: flex; align-items: center; justify-content: center; clip-path: polygon(0 0, 80% 0, 100% 50%, 80% 100%, 0 100%); }
+.logo-badge span { font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 700; color: #000; }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a { font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--fg); }
+.nav-links a.active { color: var(--accent); }
+.nav-join { margin-left: 28px; padding: 9px 22px; background: var(--accent); color: #000; font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+.nav-join:hover { background: #fff; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.eyebrow { font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 0.32em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+.eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--accent); }
+
+.page-header { padding: 140px 0 72px; background: var(--surface); border-bottom: 1px solid var(--border); }
+.page-title { font-family: 'Oswald', sans-serif; font-size: clamp(40px, 6vw, 72px); font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.9; margin-bottom: 20px; }
+.page-lead { font-size: 15px; color: var(--muted); max-width: 600px; line-height: 1.75; }
+
+/* ABOUT STORY */
+.story-section { padding: 80px 0; }
+.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.story-visual { aspect-ratio: 4/3; position: relative; background: var(--surface); overflow: hidden; }
+.story-vis-inner { position: absolute; inset: 0; background: linear-gradient(140deg, #0c0c00 0%, #181500 50%, #090900 100%); display: flex; align-items: center; justify-content: center; }
+.story-vis-inner svg { opacity: 0.1; }
+.story-vis-bar { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 18px; background: var(--accent); font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #000; }
+.story-vis-stripe { position: absolute; top: 0; right: 0; width: 4px; height: 60%; background: var(--accent); }
+.story-text h2 { font-family: 'Oswald', sans-serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1; margin-bottom: 20px; }
+.story-text p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 16px; }
+.story-text p:last-child { margin-bottom: 0; }
+
+/* VALUES */
+.values-section { padding: 80px 0; background: var(--surface); }
+.sec-title { font-family: 'Oswald', sans-serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1; margin-bottom: 48px; }
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.value-card { padding: 40px 32px; background: var(--bg); position: relative; overflow: hidden; }
+.value-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+.value-card:hover::after { transform: scaleX(1); }
+.value-icon { width: 40px; height: 40px; margin-bottom: 20px; color: var(--accent); }
+.value-card h3 { font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 10px; }
+.value-card p { font-size: 13px; color: var(--muted); line-height: 1.75; }
+
+/* BUREAU */
+.bureau-section { padding: 80px 0 96px; }
+.bureau-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.bureau-card { background: var(--surface); overflow: hidden; }
+.bureau-photo { height: 240px; background: linear-gradient(135deg, #0f0e00 0%, #181500 100%); position: relative; display: flex; align-items: center; justify-content: center; }
+.bureau-photo svg { opacity: 0.12; }
+.bureau-photo-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 10px 16px; background: rgba(0,0,0,0.6); font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+.bureau-body { padding: 28px 28px 32px; }
+.bureau-role { font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+.bureau-card h3 { font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 10px; }
+.bureau-card p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.bureau-contact { display: flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.bureau-contact:hover { color: var(--accent); }
+
+/* JOIN BAND */
+.join-band { background: var(--accent); padding: 0 48px; }
+.join-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 64px 0; }
+.join-inner h2 { font-family: 'Oswald', sans-serif; font-size: clamp(24px, 3vw, 40px); font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; color: #000; line-height: 1; }
+.join-inner p { font-size: 14px; color: rgba(0,0,0,0.6); margin-top: 6px; }
+.btn-dark { flex-shrink: 0; display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; background: #000; color: var(--accent); font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: background 0.18s; }
+.btn-dark:hover { background: #1a1a1a; }
+
+footer { background: #040404; border-top: 1px solid var(--border); padding: 32px 48px; }
+.footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.footer-bottom p { font-size: 11px; color: rgba(255,255,255,0.18); }
+.footer-bottom a { font-size: 11px; color: rgba(255,255,255,0.22); text-decoration: none; }
+
+@media (max-width: 1024px) { .story-grid { grid-template-columns: 1fr; gap: 40px; } .bureau-grid { grid-template-columns: 1fr 1fr; } .values-grid { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { nav { padding: 0 24px; } .container { padding: 0 24px; } .page-header { padding: 112px 0 48px; } .bureau-grid { grid-template-columns: 1fr; } .join-inner { flex-direction: column; align-items: flex-start; } .join-band { padding: 0 24px; } footer { padding: 28px 24px; } }
+</style>
+</head>
+<body>
+
+<nav data-od-id="nav">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-badge"><span>LRS</span></div>
+    Léman Renault Sport
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="calendrier.html">Calendrier</a></li>
+    <li><a href="notre-structure.html" class="active">Le Club</a></li>
+    <li><a href="reglements.html">Règlement</a></li>
+    <li><a href="partenaires.html">Partenaires</a></li>
+  </ul>
+  <a href="nous-rejoindre.html" class="nav-join">Nous Rejoindre</a>
+</nav>
+
+<div class="page-header" data-od-id="page-header">
+  <div class="container">
+    <p class="eyebrow">Qui sommes-nous</p>
+    <h1 class="page-title">Notre<br>structure</h1>
+    <p class="page-lead">Léman Renault Sport est une association à but non lucratif fondée par et pour les passionnés de sport automobile du bassin lémanique.</p>
+  </div>
+</div>
+
+<!-- HISTOIRE -->
+<div class="story-section" data-od-id="story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-visual">
+        <div class="story-vis-inner">
+          <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5">
+            <circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/>
+          </svg>
+        </div>
+        <div class="story-vis-stripe"></div>
+        <div class="story-vis-bar">→ Photo du club à fournir</div>
+      </div>
+      <div class="story-text">
+        <p class="eyebrow">Notre histoire</p>
+        <h2>Fondés en 2024 autour du lac Léman</h2>
+        <p>Léman Renault Sport est né de la rencontre de plusieurs passionnés de sport automobile vivant autour du lac Léman, qui souhaitaient aller plus loin que les forums en ligne et partager leur passion sur la route, en circuit et lors de rassemblements.</p>
+        <p>Fondée en 2024 à Thonon-les-Bains, l'association s'est rapidement développée pour réunir plus de 50 membres actifs, venus de France et de Suisse romande, unis par leur amour des Renault Sport et de la conduite sportive.</p>
+        <p>Nous croyons que la passion automobile est plus belle quand elle se partage. Chaque événement est une occasion de créer des souvenirs inoubliables sur les routes et circuits de notre région.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VALEURS -->
+<div class="values-section" data-od-id="values">
+  <div class="container">
+    <p class="eyebrow">Ce en quoi on croit</p>
+    <h2 class="sec-title">Nos valeurs</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <svg class="value-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M24 4l4 8 8.5 1.2-6.2 6 1.5 8.8L24 24l-7.8 4 1.5-8.8-6.2-6L20 12z"/>
+          <circle cx="24" cy="36" r="8"/>
+          <path d="M24 30v12M18 36h12"/>
+        </svg>
+        <h3>Passion authentique</h3>
+        <p>Nous rassemblons des passionnés vrais, sans chichi. Peu importe le modèle ou l'ancienneté — si tu aimes la conduite sportive, tu es des nôtres.</p>
+      </div>
+      <div class="value-card">
+        <svg class="value-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M24 6C14 6 6 14 6 24s8 18 18 18 18-8 18-18S34 6 24 6z"/>
+          <path d="M24 14v10l6 6"/>
+        </svg>
+        <h3>Respect &amp; sécurité</h3>
+        <p>La vitesse a sa place, au bon endroit. Sur route ouverte, on roule en respectant les règles et les autres. La sécurité de tous passe avant tout.</p>
+      </div>
+      <div class="value-card">
+        <svg class="value-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M8 40V24l8-16 8 8 8-16 8 8v24"/>
+          <path d="M24 40V28M16 40v-8M32 40v-8"/>
+        </svg>
+        <h3>Entraide &amp; partage</h3>
+        <p>Le mécano qui aide son voisin à régler sa tenue de route, la balade planifiée avec soin, le conseil partagé sans retenue — c'est ça, l'esprit du club.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BUREAU -->
+<div class="bureau-section" data-od-id="bureau">
+  <div class="container">
+    <p class="eyebrow">Gouvernance</p>
+    <h2 class="sec-title" style="margin-bottom:48px;">Le bureau</h2>
+    <div class="bureau-grid" id="bureau-grid">
+      <div class="bureau-card" data-od-id="bureau-president">
+        <div class="bureau-photo">
+          <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+          <div class="bureau-photo-label">→ Photo à fournir</div>
+        </div>
+        <div class="bureau-body">
+          <div class="bureau-role">Président</div>
+          <h3>Quentin Viglieno Tona</h3>
+          <p>Fondateur et président de l'association. Passionné de Renault Sport, il pilote les événements et représente le club.</p>
+          <a href="mailto:contact@lemanrenaultsport.fr" class="bureau-contact">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Contacter
+          </a>
+        </div>
+      </div>
+      <div class="bureau-card" data-od-id="bureau-vp">
+        <div class="bureau-photo">
+          <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+          <div class="bureau-photo-label">→ Photo à fournir</div>
+        </div>
+        <div class="bureau-body">
+          <div class="bureau-role">Vice-Président &amp; Secrétaire</div>
+          <h3>Maxime Bajorek</h3>
+          <p>Bras droit du président, en charge de la communication, des inscriptions et de la coordination administrative du club.</p>
+          <a href="mailto:contact@lemanrenaultsport.fr" class="bureau-contact">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Contacter
+          </a>
+        </div>
+      </div>
+      <div class="bureau-card" data-od-id="bureau-encadrant">
+        <div class="bureau-photo">
+          <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+          <div class="bureau-photo-label">→ Photo à fournir</div>
+        </div>
+        <div class="bureau-body">
+          <div class="bureau-role">Encadrant</div>
+          <h3>Antoine Cardot</h3>
+          <p>Responsable de l'encadrement lors des sorties et événements. Veille à la sécurité et au bon déroulement de chaque activité.</p>
+          <a href="mailto:contact@lemanrenaultsport.fr" class="bureau-contact">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Contacter
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JOIN CTA -->
+<div class="join-band" data-od-id="join-cta">
+  <div class="join-inner">
+    <div>
+      <h2>Envie de rejoindre l'aventure ?</h2>
+      <p>Vous possédez un Renault Sport ou Alpine ? Rejoignez-nous, c'est entièrement gratuit.</p>
+    </div>
+    <a href="nous-rejoindre.html" class="btn-dark">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      Devenir membre
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <p>© 2026 Léman Renault Sport · Association loi 1901</p>
+    <a href="#">Conditions générales</a>
+  </div>
+</footer>
+</body>
+</html>
