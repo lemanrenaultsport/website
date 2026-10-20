@@ -33,7 +33,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 64px; di
 
 /* PARTNERS */
 .partners-section { padding: 80px 0 96px; }
-.partners-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-bottom: 56px; }
+.partners-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-bottom: 56px; }
 .partner-card {
   padding: 40px 36px; background: var(--surface);
   display: flex; flex-direction: column; gap: 16px;
@@ -58,6 +58,9 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 64px; di
 .partner-link:hover { color: var(--accent); }
 .partner-link svg { transition: transform 0.2s; }
 .partner-link:hover svg { transform: translateX(3px); }
+.partner-avantages { list-style: none; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+.partner-avantages li { font-size: 13px; color: var(--muted); line-height: 1.6; padding-left: 16px; position: relative; }
+.partner-avantages li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 11px; top: 1px; }
 
 /* BECOME PARTNER */
 .become-partner { margin-top: 80px; padding: 64px 56px; background: var(--surface); border: 1px solid var(--border); display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
@@ -72,7 +75,6 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
 .footer-bottom a { font-size: 11px; color: rgba(255,255,255,0.22); text-decoration: none; }
 
 @media (max-width: 1024px) {
-  .partners-grid { grid-template-columns: 1fr 1fr; }
   .become-partner { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
@@ -106,7 +108,7 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
   <div class="container">
     <p class="eyebrow">Nos soutiens</p>
     <h1 class="page-title">Partenaires<br>du club</h1>
-    <p class="page-lead">Ils nous font confiance et soutiennent l'activité de Léman Renault Sport. Découvrez nos partenaires locaux et nationaux.</p>
+    <p class="page-lead">Avantages et réductions exclusifs avec votre carte d'adhérent Léman Renault Sport.</p>
   </div>
 </div>
 
@@ -132,27 +134,57 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
 <script>
 (function () {
   var DEFAULT = [
-    { id:'p1', nom:'Angel Car', categorie:'Partenaire officiel', description:'Partenaire officiel de Léman Renault Sport. Spécialiste automobile de confiance du club.', url:'#', logo:'assets/logo-partenaire/logo_angelCar.jpg' },
-    { id:'p2', nom:'FlexO Auto', categorie:'Partenaire officiel', description:'Partenaire officiel de Léman Renault Sport.', url:'#', logo:'assets/logo-partenaire/logo_flexOauto.jpg' },
-    { id:'p3', nom:'Taker', categorie:'Partenaire communication', description:'Agence partenaire en charge de la communication et du développement digital de Léman Renault Sport.', url:'#', logo:'assets/logo-partenaire/logo_taker.png' }
+    {
+      id:'p1', nom:'Junior Conseil Take', categorie:'Service web & digital',
+      avantages:[
+        '−10 % sur le développement web',
+        '−10 % sur le développement mobile',
+        '−10 % sur l\'intelligence artificielle & data',
+        '−10 % sur la cybersécurité & audit',
+        '−10 % sur le conseil & cadrage',
+        '−10 % sur les logiciels & SaaS'
+      ],
+      url:'#', logo:'assets/logo-partenaire/logo_taker.png'
+    },
+    {
+      id:'p2', nom:'Auto Diag', categorie:'Contrôle Technique',
+      avantages:[
+        'Remise de 20 € sur le contrôle technique (tarif affiché 110 €, soit −18 %)',
+        'Valable également pour un second véhicule de l\'adhérent'
+      ],
+      url:'#', logo:null
+    },
+    {
+      id:'p3', nom:'Flex O Auto', categorie:'Pièces auto',
+      avantages:[
+        'Prix remisé sur des pièces en carbone selon les références'
+      ],
+      url:'#', logo:'assets/logo-partenaire/logo_flexOauto.jpg'
+    },
+    {
+      id:'p4', nom:'Angel Car', categorie:'Detailing',
+      avantages:[
+        '−10 % sur les nettoyages intérieur et polissage',
+        '−5 % sur les produits de nettoyage gamme Gyeon et sur le site wax-it'
+      ],
+      url:'#', logo:'assets/logo-partenaire/logo_angelCar.jpg'
+    }
   ];
 
-  function load() {
-    try { var d = JSON.parse(localStorage.getItem('lrs_partenaires')); return d && d.length ? d : DEFAULT; }
-    catch(e) { return DEFAULT; }
-  }
-
-  var partners = load();
+  var partners = DEFAULT;
   var html = '<div class="partners-grid">';
 
   partners.forEach(function(p) {
     var logoHtml = p.logo
       ? '<img src="' + p.logo + '" alt="' + p.nom + '" class="partner-logo-img">'
       : '<div class="partner-logo-placeholder"><span>Logo</span></div>';
+    var avHtml = '<ul class="partner-avantages">'
+      + p.avantages.map(function(a){ return '<li>' + a + '</li>'; }).join('')
+      + '</ul>';
     html += '<div class="partner-card">'
       + logoHtml
       + '<div><span class="partner-tag">' + p.categorie + '</span><h3>' + p.nom + '</h3></div>'
-      + '<p>' + p.description + '</p>';
+      + avHtml;
     if (p.url && p.url !== '#') {
       html += '<a href="' + p.url + '" target="_blank" class="partner-link">Visiter le site <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>';
     }
