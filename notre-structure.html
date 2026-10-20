@@ -35,8 +35,8 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 64px; di
 .story-section { padding: 80px 0; }
 .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .story-visual { aspect-ratio: 4/3; position: relative; background: var(--surface); overflow: hidden; }
-.story-vis-inner { position: absolute; inset: 0; background: linear-gradient(140deg, #0c0c00 0%, #181500 50%, #090900 100%); display: flex; align-items: center; justify-content: center; }
-.story-vis-inner svg { opacity: 0.1; }
+.story-vis-inner { display: none; }
+.story-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .story-vis-bar { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 18px; background: var(--accent); font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #000; }
 .story-vis-stripe { position: absolute; top: 0; right: 0; width: 4px; height: 60%; background: var(--accent); }
 .story-text h2 { font-family: 'Oswald', sans-serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1; margin-bottom: 20px; }
@@ -115,13 +115,10 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
   <div class="container">
     <div class="story-grid">
       <div class="story-visual">
-        <div class="story-vis-inner">
-          <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5">
-            <circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/>
-          </svg>
-        </div>
+        <div class="story-vis-inner"></div>
+        <img src="assets/photo/DJI_20260801165817_0007_D.jpg" alt="Léman Renault Sport — rassemblement 2026">
         <div class="story-vis-stripe"></div>
-        <div class="story-vis-bar">→ Photo du club à fournir</div>
+        <div class="story-vis-bar">Léman Renault Sport — Été 2026</div>
       </div>
       <div class="story-text">
         <p class="eyebrow">Notre histoire</p>

@@ -92,8 +92,8 @@ nav {
 .hero-bg {
   position: absolute; inset: 0;
   background:
-    linear-gradient(to bottom, rgba(8,8,8,0.2) 0%, rgba(8,8,8,0.55) 55%, rgba(8,8,8,0.97) 100%),
-    linear-gradient(120deg, #0a0a00 0%, #111100 30%, #090909 70%, #0a0a0a 100%);
+    linear-gradient(to bottom, rgba(8,8,8,0.25) 0%, rgba(8,8,8,0.6) 55%, rgba(8,8,8,0.98) 100%),
+    url('assets/photo/DJI_20260801165548_0003_D.jpg') center/cover no-repeat;
 }
 /* Yellow diagonal accent */
 .hero-diagonal {
@@ -276,9 +276,9 @@ nav {
 .ev-card:hover { border-color: rgba(241,255,0,0.4); transform: translateY(-4px); }
 .ev-img {
   height: 176px; position: relative; overflow: hidden;
-  background: linear-gradient(135deg, #0f0e00 0%, #181600 60%, #0a0900 100%);
-  display: flex; align-items: center; justify-content: center;
+  background: #0a0900;
 }
+.ev-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .ev-img-label {
   position: absolute; bottom: 10px; left: 12px;
   font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 0.18em;
@@ -313,12 +313,8 @@ nav {
   aspect-ratio: 4/3; position: relative;
   background: var(--surface); overflow: hidden;
 }
-.about-vis-inner {
-  position: absolute; inset: 0;
-  background: linear-gradient(140deg, #0c0c00 0%, #181500 50%, #090900 100%);
-  display: flex; align-items: center; justify-content: center;
-}
-.about-vis-inner svg { opacity: 0.12; }
+.about-vis-inner { display: none; }
+.about-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .about-vis-bar {
   position: absolute; bottom: 0; left: 0; right: 0;
   padding: 14px 18px;
@@ -570,11 +566,7 @@ footer {
     <div class="ev-grid">
       <div class="ev-card" data-od-id="event-card-aravis">
         <div class="ev-img">
-          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.6">
-            <path d="M3 17l4-8 4 4 3-6 4 10H3z"/>
-            <circle cx="18" cy="8" r="2"/>
-          </svg>
-          <span class="ev-img-label">→ Photo à fournir</span>
+          <img src="assets/photo/DSC02394.JPG" alt="Balade Aravis">
         </div>
         <div class="ev-body">
           <div class="ev-date">15 Nov. 2026 · Annecy</div>
@@ -585,12 +577,7 @@ footer {
       </div>
       <div class="ev-card" data-od-id="event-card-repas">
         <div class="ev-img">
-          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.6">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-            <circle cx="9" cy="7" r="4"/>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-          </svg>
-          <span class="ev-img-label">→ Photo à fournir</span>
+          <img src="assets/photo/_M8A0099.jpg" alt="Rassemblement membres">
         </div>
         <div class="ev-body">
           <div class="ev-date">13 Déc. 2026 · Thonon-les-Bains</div>
@@ -601,12 +588,7 @@ footer {
       </div>
       <div class="ev-card" data-od-id="event-card-circuit">
         <div class="ev-img">
-          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.6">
-            <path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/>
-            <rect x="9" y="11" width="14" height="10" rx="2"/>
-            <path d="M13 16l2 2 4-4"/>
-          </svg>
-          <span class="ev-img-label">→ Photo à fournir</span>
+          <img src="assets/photo/DSC02373.JPG" alt="Journée circuit">
         </div>
         <div class="ev-body">
           <div class="ev-date">Avr. 2027 · Circuit de Bresse</div>
@@ -624,15 +606,10 @@ footer {
   <div class="container">
     <div class="about-grid">
       <div class="about-visual">
-        <div class="about-vis-inner">
-          <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-            <path d="M2 12h20"/>
-          </svg>
-        </div>
+        <div class="about-vis-inner"></div>
+        <img src="assets/photo/_M8A0129.jpg" alt="Léman Renault Sport — rassemblement été 2026">
         <div class="about-vis-stripe"></div>
-        <div class="about-vis-bar">→ Photo du club à fournir</div>
+        <div class="about-vis-bar">Léman Renault Sport — Été 2026</div>
       </div>
       <div class="about-text">
         <p class="eyebrow">À propos</p>

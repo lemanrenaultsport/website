@@ -50,6 +50,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 64px; di
   display: flex; align-items: center; justify-content: center;
 }
 .partner-logo-placeholder span { font-family: 'Oswald', sans-serif; font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); opacity: 0.5; }
+.partner-logo-img { height: 44px; max-width: 120px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.8; }
 .partner-tag { display: inline-block; padding: 3px 9px; background: rgba(241,255,0,0.08); color: var(--accent); font-size: 9px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
 .partner-card h3 { font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
 .partner-card p { font-size: 13px; color: var(--muted); line-height: 1.75; flex: 1; }
@@ -131,9 +132,9 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
 <script>
 (function () {
   var DEFAULT = [
-    { id:'p1', nom:'Garage du Léman', categorie:'Garage officiel', description:'Partenaire technique officiel du club. Révisions, préparations piste, réglages — ils connaissent les Renault Sport mieux que personne dans la région.', url:'#' },
-    { id:'p2', nom:'Pneus Passion Léman', categorie:'Équipementier', description:'Spécialiste pneumatiques sport et piste. Tarifs préférentiels pour les membres sur l\'ensemble de la gamme performance. Montage et équilibrage inclus.', url:'#' },
-    { id:'p3', nom:'RS Detailing', categorie:'Carrosserie & Esthétique', description:'Préparation et protection carrosserie, traitement céramique, lustrage professionnel. Tarif club –15 % sur présentation de votre carte membre.', url:'#' }
+    { id:'p1', nom:'Angel Car', categorie:'Partenaire officiel', description:'Partenaire officiel de Léman Renault Sport. Spécialiste automobile de confiance du club.', url:'#', logo:'assets/logo-partenaire/logo_angelCar.jpg' },
+    { id:'p2', nom:'FlexO Auto', categorie:'Partenaire officiel', description:'Partenaire officiel de Léman Renault Sport.', url:'#', logo:'assets/logo-partenaire/logo_flexOauto.jpg' },
+    { id:'p3', nom:'Taker', categorie:'Partenaire communication', description:'Agence partenaire en charge de la communication et du développement digital de Léman Renault Sport.', url:'#', logo:'assets/logo-partenaire/logo_taker.png' }
   ];
 
   function load() {
@@ -145,8 +146,11 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
   var html = '<div class="partners-grid">';
 
   partners.forEach(function(p) {
+    var logoHtml = p.logo
+      ? '<img src="' + p.logo + '" alt="' + p.nom + '" class="partner-logo-img">'
+      : '<div class="partner-logo-placeholder"><span>Logo</span></div>';
     html += '<div class="partner-card">'
-      + '<div class="partner-logo-placeholder"><span>Logo à fournir</span></div>'
+      + logoHtml
       + '<div><span class="partner-tag">' + p.categorie + '</span><h3>' + p.nom + '</h3></div>'
       + '<p>' + p.description + '</p>';
     if (p.url && p.url !== '#') {
