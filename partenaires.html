@@ -33,34 +33,53 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 64px; di
 
 /* PARTNERS */
 .partners-section { padding: 80px 0 96px; }
-.partners-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-bottom: 56px; }
+.partners-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 56px; }
 .partner-card {
-  padding: 40px 36px; background: var(--surface);
-  display: flex; flex-direction: column; gap: 16px;
+  background: var(--surface);
+  display: flex; flex-direction: column;
   position: relative; overflow: hidden;
-  transition: background 0.2s;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s, background 0.2s;
 }
-.partner-card:hover { background: var(--surface-2); }
-.partner-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); opacity: 0; transition: opacity 0.2s; }
-.partner-card:hover::before { opacity: 1; }
+.partner-card:hover { background: var(--surface-2); border-color: rgba(241,255,0,0.3); }
+.partner-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+.partner-card:hover::after { transform: scaleX(1); }
+
+/* Logo zone */
+.partner-logo-zone {
+  height: 110px; display: flex; align-items: center; justify-content: center;
+  padding: 20px 32px; background: #fff;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.partner-logo-zone.logo-dark { background: #08080e; border-bottom-color: var(--border); }
+.partner-logo-zone img { max-height: 70px; max-width: 200px; object-fit: contain; }
 .partner-logo-placeholder {
-  width: 100px; height: 40px;
-  background: rgba(241,255,0,0.06);
-  border: 1px solid rgba(241,255,0,0.12);
-  display: flex; align-items: center; justify-content: center;
+  height: 110px; display: flex; align-items: center; justify-content: center;
+  background: rgba(241,255,0,0.04); border-bottom: 1px solid var(--border);
 }
-.partner-logo-placeholder span { font-family: 'Oswald', sans-serif; font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); opacity: 0.5; }
-.partner-logo-img { height: 44px; max-width: 120px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.8; }
-.partner-tag { display: inline-block; padding: 3px 9px; background: rgba(241,255,0,0.08); color: var(--accent); font-size: 9px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
-.partner-card h3 { font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
-.partner-card p { font-size: 13px; color: var(--muted); line-height: 1.75; flex: 1; }
-.partner-link { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.2s; margin-top: auto; }
+.partner-logo-placeholder span { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); opacity: 0.4; }
+
+/* Card body */
+.partner-card-body { padding: 28px 32px 32px; display: flex; flex-direction: column; gap: 18px; flex: 1; }
+.partner-tag { display: inline-block; padding: 4px 10px; background: rgba(241,255,0,0.08); color: var(--accent); font-size: 9px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; align-self: flex-start; }
+.partner-card h3 { font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; color: var(--fg); }
+
+/* Avantages */
+.partner-avantages { list-style: none; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.partner-avantages li {
+  font-size: 13.5px; color: rgba(255,255,255,0.72); line-height: 1.6;
+  padding: 10px 14px 10px 38px; position: relative;
+  background: rgba(255,255,255,0.03); border-left: 2px solid var(--border);
+}
+.partner-avantages li::before {
+  content: ''; position: absolute; left: 13px; top: 50%; transform: translateY(-50%);
+  width: 7px; height: 7px; background: var(--accent); border-radius: 50%;
+}
+
+.partner-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
 .partner-link:hover { color: var(--accent); }
 .partner-link svg { transition: transform 0.2s; }
 .partner-link:hover svg { transform: translateX(3px); }
-.partner-avantages { list-style: none; display: flex; flex-direction: column; gap: 9px; flex: 1; }
-.partner-avantages li { font-size: 13px; color: var(--muted); line-height: 1.6; padding-left: 16px; position: relative; }
-.partner-avantages li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 11px; top: 1px; }
 
 /* BECOME PARTNER */
 .become-partner { margin-top: 80px; padding: 64px 56px; background: var(--surface); border: 1px solid var(--border); display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
@@ -135,7 +154,7 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
 (function () {
   var DEFAULT = [
     {
-      id:'p1', nom:'Junior Conseil Take', categorie:'Service web & digital',
+      id:'p1', nom:'Taker', categorie:'Service web & digital',
       avantages:[
         '−10 % sur le développement web',
         '−10 % sur le développement mobile',
@@ -144,7 +163,7 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
         '−10 % sur le conseil & cadrage',
         '−10 % sur les logiciels & SaaS'
       ],
-      url:'#', logo:'assets/logo-partenaire/logo_taker.png'
+      url:'#', logo:'assets/logo-partenaire/logo_taker.png', darkLogo: false
     },
     {
       id:'p2', nom:'Auto Diag', categorie:'Contrôle Technique',
@@ -152,14 +171,14 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
         'Remise de 20 € sur le contrôle technique (tarif affiché 110 €, soit −18 %)',
         'Valable également pour un second véhicule de l\'adhérent'
       ],
-      url:'#', logo:null
+      url:'#', logo:'assets/logo-partenaire/logo_autodiag.png', darkLogo: false
     },
     {
       id:'p3', nom:'Flex O Auto', categorie:'Pièces auto',
       avantages:[
         'Prix remisé sur des pièces en carbone selon les références'
       ],
-      url:'#', logo:'assets/logo-partenaire/logo_flexOauto.jpg'
+      url:'#', logo:'assets/logo-partenaire/logo_flexOauto.jpg', darkLogo: false
     },
     {
       id:'p4', nom:'Angel Car', categorie:'Detailing',
@@ -167,7 +186,7 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
         '−10 % sur les nettoyages intérieur et polissage',
         '−5 % sur les produits de nettoyage gamme Gyeon et sur le site wax-it'
       ],
-      url:'#', logo:'assets/logo-partenaire/logo_angelCar.jpg'
+      url:'#', logo:'assets/logo-partenaire/logo_angelCar.png', darkLogo: true
     }
   ];
 
@@ -175,20 +194,23 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
   var html = '<div class="partners-grid">';
 
   partners.forEach(function(p) {
-    var logoHtml = p.logo
-      ? '<img src="' + p.logo + '" alt="' + p.nom + '" class="partner-logo-img">'
-      : '<div class="partner-logo-placeholder"><span>Logo</span></div>';
+    var logoZone = p.logo
+      ? '<div class="partner-logo-zone' + (p.darkLogo ? ' logo-dark' : '') + '"><img src="' + p.logo + '" alt="' + p.nom + '"></div>'
+      : '<div class="partner-logo-placeholder"><span>Logo à fournir</span></div>';
     var avHtml = '<ul class="partner-avantages">'
       + p.avantages.map(function(a){ return '<li>' + a + '</li>'; }).join('')
       + '</ul>';
+    var linkHtml = (p.url && p.url !== '#')
+      ? '<a href="' + p.url + '" target="_blank" class="partner-link">Visiter le site <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>'
+      : '';
     html += '<div class="partner-card">'
-      + logoHtml
-      + '<div><span class="partner-tag">' + p.categorie + '</span><h3>' + p.nom + '</h3></div>'
-      + avHtml;
-    if (p.url && p.url !== '#') {
-      html += '<a href="' + p.url + '" target="_blank" class="partner-link">Visiter le site <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>';
-    }
-    html += '</div>';
+      + logoZone
+      + '<div class="partner-card-body">'
+      + '<span class="partner-tag">' + p.categorie + '</span>'
+      + '<h3>' + p.nom + '</h3>'
+      + avHtml
+      + linkHtml
+      + '</div></div>';
   });
 
   html += '</div>';
