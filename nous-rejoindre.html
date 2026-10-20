@@ -28,8 +28,7 @@ nav {
 .nav-links a { font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
 .nav-links a:hover { color: var(--fg); }
 .nav-links a.active { color: var(--accent); }
-.nav-join { margin-left: 28px; padding: 9px 22px; background: var(--accent); color: #000; font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
-.nav-join:hover { background: #fff; }
+.nav-join { margin-left: 28px; padding: 9px 22px; background: #000; color: var(--accent); border: 1px solid var(--accent); font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; }
 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
 .eyebrow { font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 0.32em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
@@ -40,77 +39,75 @@ nav {
 .page-title { font-family: 'Oswald', sans-serif; font-size: clamp(40px, 6vw, 72px); font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.9; margin-bottom: 20px; }
 .page-lead { font-size: 16px; color: var(--muted); max-width: 560px; line-height: 1.75; }
 
-/* PRICING */
-.pricing-section { padding: 80px 0; }
-.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-.price-card {
-  padding: 48px 40px; background: var(--surface);
-  position: relative; overflow: hidden;
+/* FREE BADGE HERO */
+.free-banner { padding: 56px 0; border-bottom: 1px solid var(--border); }
+.free-inner {
+  display: flex; align-items: center; gap: 48px;
+  padding: 48px 56px; background: var(--surface);
 }
-.price-card.featured { background: var(--accent); }
-.price-card.featured * { color: #000 !important; }
-.price-card.featured .price-val { color: #000 !important; }
-.price-badge {
-  position: absolute; top: 20px; right: 20px;
-  padding: 4px 10px; background: #000; color: var(--accent);
-  font-family: 'Oswald', sans-serif; font-size: 9px; font-weight: 600;
-  letter-spacing: 0.14em; text-transform: uppercase;
+.free-badge {
+  flex-shrink: 0;
+  width: 140px; height: 140px;
+  background: var(--accent);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
-.price-type { font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
-.price-card.featured .price-type { color: rgba(0,0,0,0.55); }
-.price-val { font-family: 'Oswald', sans-serif; font-size: 56px; font-weight: 700; line-height: 1; color: var(--fg); letter-spacing: -0.02em; }
-.price-period { font-size: 14px; color: var(--muted); margin-bottom: 32px; }
-.price-card.featured .price-period { color: rgba(0,0,0,0.55); }
-.price-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
-.price-features li {
-  font-size: 14px; color: rgba(255,255,255,0.7);
-  display: flex; align-items: flex-start; gap: 10px;
-}
-.price-card.featured .price-features li { color: rgba(0,0,0,0.75); }
-.price-features li::before { content: '→'; color: var(--accent); flex-shrink: 0; font-size: 12px; margin-top: 2px; }
-.price-card.featured .price-features li::before { color: #000; }
-.btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 14px 30px; background: var(--accent); color: #000; font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: background 0.18s; border: none; cursor: pointer; }
-.btn-primary:hover { background: #fff; }
-.btn-dark { display: inline-flex; align-items: center; gap: 8px; padding: 14px 30px; background: #000; color: var(--accent); font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: background 0.18s; border: none; cursor: pointer; }
-.btn-dark:hover { background: #1a1a1a; }
-.btn-ghost { display: inline-flex; align-items: center; gap: 8px; padding: 13px 30px; border: 1px solid rgba(255,255,255,0.22); color: var(--fg); font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: border-color 0.18s; }
-.btn-ghost:hover { border-color: rgba(255,255,255,0.7); }
+.free-badge-val { font-family: 'Oswald', sans-serif; font-size: 42px; font-weight: 700; color: #000; line-height: 1; }
+.free-badge-label { font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #000; }
+.free-text h2 { font-family: 'Oswald', sans-serif; font-size: 32px; font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 12px; }
+.free-text p { font-size: 15px; color: var(--muted); line-height: 1.8; max-width: 560px; }
+.free-text strong { color: var(--fg); }
 
-/* HOW TO JOIN */
-.steps-section { padding: 80px 0; background: var(--surface); }
+/* CONDITIONS */
+.conditions-section { padding: 80px 0; }
 .sec-title { font-family: 'Oswald', sans-serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1; margin-bottom: 12px; }
-.sec-lead { font-size: 15px; color: var(--muted); max-width: 500px; line-height: 1.75; margin-bottom: 52px; }
-.steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
-.step-card { padding: 36px 28px; background: var(--bg); }
-.step-n { font-family: 'Oswald', sans-serif; font-size: 56px; font-weight: 700; color: rgba(241,255,0,0.08); line-height: 1; margin-bottom: 20px; }
-.step-card h3 { font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
-.step-card p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.sec-lead { font-size: 15px; color: var(--muted); max-width: 500px; line-height: 1.75; margin-bottom: 48px; }
+.conditions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.condition-card { padding: 40px 36px; background: var(--surface); display: flex; flex-direction: column; gap: 16px; }
+.condition-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(241,255,0,0.08); border: 1px solid rgba(241,255,0,0.15); flex-shrink: 0; }
+.condition-icon svg { stroke: var(--accent); }
+.condition-card h3 { font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; }
+.condition-card p { font-size: 14px; color: var(--muted); line-height: 1.75; }
+.condition-card strong { color: var(--fg); }
 
-/* FORM */
-.form-section { padding: 80px 0 96px; }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
-.form-info h2 { font-family: 'Oswald', sans-serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1; margin-bottom: 16px; }
-.form-info p { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 28px; }
-.contact-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
-.contact-list li { font-size: 14px; color: rgba(255,255,255,0.7); display: flex; align-items: flex-start; gap: 12px; }
-.contact-list li span { color: var(--accent); font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding-top: 2px; min-width: 50px; }
-.contact-list a { color: var(--fg); text-decoration: none; }
-.contact-list a:hover { color: var(--accent); }
-form { display: flex; flex-direction: column; gap: 16px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.form-field { display: flex; flex-direction: column; gap: 6px; }
-.form-field label { font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
-.form-field input, .form-field select, .form-field textarea {
-  background: var(--surface); border: 1px solid var(--border); color: var(--fg);
-  padding: 12px 14px; font-family: 'Inter', sans-serif; font-size: 14px;
-  outline: none; transition: border-color 0.2s; resize: vertical;
-  -webkit-appearance: none;
+/* STEPS */
+.steps-section { padding: 80px 0; background: var(--surface); }
+.steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 48px; }
+.step-card { padding: 36px 28px; background: var(--bg); position: relative; }
+.step-connector {
+  position: absolute; top: 54px; right: -1px; width: 2px; height: 28px;
+  background: var(--border);
 }
-.form-field input:focus, .form-field select:focus, .form-field textarea:focus {
-  border-color: var(--accent);
+.step-n { font-family: 'Oswald', sans-serif; font-size: 56px; font-weight: 700; color: rgba(241,255,0,0.07); line-height: 1; margin-bottom: 20px; }
+.step-card h3 { font-family: 'Oswald', sans-serif; font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+.step-card p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.step-accent { color: var(--accent); font-weight: 600; }
+
+/* CTA INSTAGRAM */
+.cta-section { padding: 96px 0; }
+.cta-inner {
+  display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center;
+  padding: 64px 56px; background: var(--surface); border: 1px solid var(--border);
 }
-.form-field input::placeholder, .form-field textarea::placeholder { color: var(--muted); }
-.form-field select option { background: #1a1a1a; }
+.cta-text h2 { font-family: 'Oswald', sans-serif; font-size: clamp(28px, 3vw, 40px); font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.05; margin-bottom: 14px; }
+.cta-text p { font-size: 15px; color: var(--muted); line-height: 1.75; max-width: 460px; }
+.cta-text p strong { color: var(--fg); }
+.btn-instagram {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 18px 36px; background: var(--accent); color: #000;
+  font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+  white-space: nowrap; transition: background 0.18s;
+}
+.btn-instagram:hover { background: #fff; }
+.btn-instagram svg { flex-shrink: 0; }
+
+/* INFOS */
+.infos-bar { background: var(--surface-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 28px 0; }
+.infos-inner { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+.info-item { display: flex; align-items: center; gap: 12px; }
+.info-item-label { font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.info-item-val { font-size: 14px; color: rgba(255,255,255,0.75); }
 
 footer { background: #040404; border-top: 1px solid var(--border); padding: 32px 48px; }
 .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
@@ -118,17 +115,19 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
 .footer-bottom a { font-size: 11px; color: rgba(255,255,255,0.22); text-decoration: none; }
 
 @media (max-width: 1024px) {
-  .pricing-grid { grid-template-columns: 1fr 1fr; }
+  .conditions-grid { grid-template-columns: 1fr 1fr; }
   .steps-grid { grid-template-columns: 1fr 1fr; }
-  .form-grid { grid-template-columns: 1fr; gap: 48px; }
+  .cta-inner { grid-template-columns: 1fr; gap: 36px; }
+  .free-inner { flex-direction: column; gap: 32px; }
 }
 @media (max-width: 768px) {
   nav { padding: 0 24px; }
   .container { padding: 0 24px; }
   .page-header { padding: 112px 0 48px; }
-  .pricing-grid { grid-template-columns: 1fr; }
-  .steps-grid { grid-template-columns: 1fr 1fr; }
-  .form-row { grid-template-columns: 1fr; }
+  .conditions-grid { grid-template-columns: 1fr; }
+  .free-inner { padding: 36px 28px; }
+  .cta-inner { padding: 40px 28px; }
+  .infos-inner { gap: 28px; }
   footer { padding: 28px 24px; }
 }
 </style>
@@ -147,165 +146,131 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
     <li><a href="reglements.html">Règlement</a></li>
     <li><a href="partenaires.html">Partenaires</a></li>
   </ul>
-  <a href="nous-rejoindre.html" class="nav-join active" style="background:#000;color:var(--accent);border:1px solid var(--accent);">Nous Rejoindre</a>
+  <a href="nous-rejoindre.html" class="nav-join">Nous Rejoindre</a>
 </nav>
 
 <div class="page-header" data-od-id="page-header">
   <div class="container">
     <p class="eyebrow">Adhésion</p>
     <h1 class="page-title">Rejoignez<br>le club</h1>
-    <p class="page-lead">Une communauté ouverte à tous les passionnés de sport automobile, autour du lac Léman.</p>
+    <p class="page-lead">Une communauté ouverte à tous les passionnés de Renault Sport et Alpine, autour du lac Léman. L'adhésion est gratuite et se fait directement sur Instagram.</p>
   </div>
 </div>
 
-<!-- TARIFS -->
-<div class="pricing-section" data-od-id="pricing">
+<!-- GRATUIT -->
+<div class="free-banner" data-od-id="free-banner">
   <div class="container">
-    <p class="eyebrow" style="margin-bottom:36px;">Tarifs d'adhésion</p>
-    <div class="pricing-grid">
-      <div class="price-card" data-od-id="price-junior">
-        <div class="price-type">Membre Junior</div>
-        <div class="price-val">25<span style="font-size:24px;">€</span></div>
-        <div class="price-period">par an · moins de 25 ans</div>
-        <ul class="price-features">
-          <li>Accès à tous les événements</li>
-          <li>Newsletter mensuelle</li>
-          <li>Forum membres en ligne</li>
-          <li>Tarif réduit sur les journées circuit</li>
-        </ul>
-        <a href="#formulaire" class="btn-ghost">Adhérer</a>
+    <div class="free-inner">
+      <div class="free-badge">
+        <div class="free-badge-val">0€</div>
+        <div class="free-badge-label">Gratuit</div>
       </div>
-      <div class="price-card featured" data-od-id="price-membre">
-        <div class="price-badge">Recommandé</div>
-        <div class="price-type">Membre Actif</div>
-        <div class="price-val">45<span style="font-size:24px;">€</span></div>
-        <div class="price-period">par an · tarif standard</div>
-        <ul class="price-features">
-          <li>Accès à tous les événements</li>
-          <li>Newsletter mensuelle</li>
-          <li>Forum membres en ligne</li>
-          <li>Tarif réduit sur les journées circuit</li>
-          <li>Droit de vote à l'AG</li>
-          <li>Éligibilité au bureau</li>
-        </ul>
-        <a href="#formulaire" class="btn-dark">Adhérer maintenant</a>
-      </div>
-      <div class="price-card" data-od-id="price-bienfaiteur">
-        <div class="price-type">Membre Bienfaiteur</div>
-        <div class="price-val">100<span style="font-size:20px;">€+</span></div>
-        <div class="price-period">par an · soutien au club</div>
-        <ul class="price-features">
-          <li>Tous les avantages Membre Actif</li>
-          <li>Mise en avant sur le site</li>
-          <li>Invitation aux événements VIP</li>
-          <li>Remerciements dans les publications</li>
-        </ul>
-        <a href="#formulaire" class="btn-ghost">Adhérer</a>
+      <div class="free-text">
+        <h2>L'adhésion est <span style="color:var(--accent);">entièrement gratuite</span></h2>
+        <p>Pas de cotisation, pas de frais cachés. Les inscriptions sont <strong>ouvertes toute l'année</strong>, sans limite de places et sans deadline. Rejoindre Léman Renault Sport, c'est simplement envoyer un message sur Instagram.</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- COMMENT ÇA MARCHE -->
+<!-- INFOS RAPIDES -->
+<div class="infos-bar" data-od-id="infos-bar">
+  <div class="container">
+    <div class="infos-inner">
+      <div class="info-item">
+        <div class="info-item-label">Cotisation</div>
+        <div class="info-item-val">Gratuite</div>
+      </div>
+      <div class="info-item">
+        <div class="info-item-label">Places disponibles</div>
+        <div class="info-item-val">Illimitées</div>
+      </div>
+      <div class="info-item">
+        <div class="info-item-label">Inscriptions</div>
+        <div class="info-item-val">Ouvertes toute l'année</div>
+      </div>
+      <div class="info-item">
+        <div class="info-item-label">Contact</div>
+        <div class="info-item-val">@lemanrenaultsport sur Instagram</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONDITIONS -->
+<div class="conditions-section" data-od-id="conditions">
+  <div class="container">
+    <p class="eyebrow">Conditions d'adhésion</p>
+    <h2 class="sec-title">Qui peut rejoindre<br>le club ?</h2>
+    <p class="sec-lead">Trois conditions simples pour intégrer la communauté.</p>
+    <div class="conditions-grid">
+      <div class="condition-card" data-od-id="condition-gratuit">
+        <div class="condition-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <h3>Gratuit</h3>
+        <p>L'adhésion est <strong>entièrement gratuite</strong> encore cette année. Aucun paiement ne vous sera demandé pour rejoindre le club ou participer aux événements.</p>
+      </div>
+      <div class="condition-card" data-od-id="condition-vehicule">
+        <div class="condition-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v9a2 2 0 01-2 2H5zM19 7h-4V3"/><circle cx="7" cy="20" r="1"/><circle cx="17" cy="20" r="1"/></svg>
+        </div>
+        <h3>Renault Sport ou Alpine</h3>
+        <p>Être titulaire d'un véhicule <strong>Renault Sport ou Alpine</strong>, ancien ou moderne. Le véhicule doit être assuré et en bon état mécanique pour participer aux sorties.</p>
+      </div>
+      <div class="condition-card" data-od-id="condition-passion">
+        <div class="condition-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3>Passion & respect</h3>
+        <p>Partager les valeurs du club : respect des personnes, des véhicules et de la loi. Le règlement intérieur s'applique à l'ensemble des activités.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESSUS -->
 <div class="steps-section" data-od-id="steps">
   <div class="container">
-    <p class="eyebrow">Processus</p>
-    <h2 class="sec-title">Comment rejoindre<br>le club ?</h2>
+    <p class="eyebrow">Comment ça marche</p>
+    <h2 class="sec-title">Le processus<br>d'inscription</h2>
     <div class="steps-grid">
-      <div class="step-card">
+      <div class="step-card" data-od-id="step-1">
         <div class="step-n">01</div>
-        <h3>Remplissez le formulaire</h3>
-        <p>Complétez le formulaire d'adhésion ci-dessous avec vos informations et choisissez votre formule.</p>
+        <h3>DM sur Instagram</h3>
+        <p>Envoyez un message privé au compte <span class="step-accent">@lemanrenaultsport</span> pour exprimer votre souhait de rejoindre le club.</p>
       </div>
-      <div class="step-card">
+      <div class="step-card" data-od-id="step-2">
         <div class="step-n">02</div>
-        <h3>Réglez la cotisation</h3>
-        <p>Paiement par virement bancaire ou remise en main propre lors d'un événement. Coordonnées fournies après soumission.</p>
+        <h3>Lien d'inscription</h3>
+        <p>Un lien dédié vous sera envoyé en retour pour finaliser votre inscription en quelques minutes.</p>
       </div>
-      <div class="step-card">
+      <div class="step-card" data-od-id="step-3">
         <div class="step-n">03</div>
         <h3>Validation du bureau</h3>
-        <p>Le bureau valide votre adhésion sous 5 jours ouvrés et vous envoie votre confirmation par email.</p>
+        <p>Une fois le lien validé par un membre du bureau, votre adhésion est confirmée.</p>
       </div>
-      <div class="step-card">
+      <div class="step-card" data-od-id="step-4">
         <div class="step-n">04</div>
-        <h3>Bienvenue dans le club</h3>
-        <p>Vous accédez immédiatement au forum, à la newsletter et aux invitations pour les prochains événements.</p>
+        <h3>Groupe WhatsApp</h3>
+        <p>Vous êtes ajouté au groupe WhatsApp du club — le canal principal pour toutes les sorties et informations.</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- FORMULAIRE -->
-<div class="form-section" data-od-id="form-section" id="formulaire">
+<!-- CTA INSTAGRAM -->
+<div class="cta-section" data-od-id="cta">
   <div class="container">
-    <div class="form-grid">
-      <div class="form-info">
-        <p class="eyebrow">Contact</p>
-        <h2>Une question avant<br>d'adhérer ?</h2>
-        <p>N'hésitez pas à nous contacter directement. Nous répondons à toutes les questions sous 24–48 h.</p>
-        <ul class="contact-list">
-          <li>
-            <span>Tél.</span>
-            <a href="tel:+33626212921">06 26 21 29 21</a>
-          </li>
-          <li>
-            <span>Email</span>
-            <a href="mailto:contact@lemanrenaultsport.fr">contact@lemanrenaultsport.fr</a>
-          </li>
-          <li>
-            <span>Adresse</span>
-            <span>1 Pl. de l'Hôtel de Ville<br>74200 Thonon-les-Bains</span>
-          </li>
-        </ul>
+    <div class="cta-inner">
+      <div class="cta-text">
+        <h2>Prêt à rejoindre<br>la communauté ?</h2>
+        <p>Un simple message suffit. Retrouvez-nous sur Instagram et envoyez-nous un DM — on revient vers vous rapidement avec le lien d'inscription.</p>
       </div>
-      <form data-od-id="adhesion-form" onsubmit="return false;">
-        <p class="eyebrow" style="margin-bottom:28px;">Formulaire d'adhésion</p>
-        <div class="form-row">
-          <div class="form-field">
-            <label>Prénom *</label>
-            <input type="text" placeholder="Jean" required>
-          </div>
-          <div class="form-field">
-            <label>Nom *</label>
-            <input type="text" placeholder="Dupont" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-field">
-            <label>Email *</label>
-            <input type="email" placeholder="jean.dupont@mail.com" required>
-          </div>
-          <div class="form-field">
-            <label>Téléphone</label>
-            <input type="tel" placeholder="06 xx xx xx xx">
-          </div>
-        </div>
-        <div class="form-field">
-          <label>Formule d'adhésion *</label>
-          <select required>
-            <option value="" disabled selected>Choisissez votre formule</option>
-            <option value="junior">Membre Junior — 25 €</option>
-            <option value="actif">Membre Actif — 45 €</option>
-            <option value="bienfaiteur">Membre Bienfaiteur — 100 € et +</option>
-          </select>
-        </div>
-        <div class="form-field">
-          <label>Votre véhicule (facultatif)</label>
-          <input type="text" placeholder="Ex : Renault Mégane RS Trophy, Clio RS, 306 S16…">
-        </div>
-        <div class="form-field">
-          <label>Message (facultatif)</label>
-          <textarea placeholder="Comment avez-vous découvert le club ? Une question ?" rows="3"></textarea>
-        </div>
-        <button type="submit" class="btn-primary" style="margin-top:8px;width:100%;justify-content:center;">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Envoyer ma demande d'adhésion
-        </button>
-        <p style="font-size:11px;color:var(--muted);margin-top:12px;line-height:1.6;">
-          En soumettant ce formulaire, vous acceptez que vos données soient utilisées pour traiter votre adhésion conformément à nos conditions générales.
-        </p>
-      </form>
+      <a href="https://instagram.com/lemanrenaultsport" target="_blank" rel="noopener" class="btn-instagram" data-od-id="cta-instagram">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        @lemanrenaultsport
+      </a>
     </div>
   </div>
 </div>
@@ -313,7 +278,7 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
 <footer>
   <div class="footer-bottom">
     <p>© 2026 Léman Renault Sport · Association loi 1901</p>
-    <a href="#">Conditions générales</a>
+    <a href="reglements.html#cg">Mentions légales</a>
   </div>
 </footer>
 
