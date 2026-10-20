@@ -31,50 +31,32 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 64px; di
 .page-title { font-family: 'Oswald', sans-serif; font-size: clamp(40px, 6vw, 72px); font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.9; margin-bottom: 20px; }
 .page-lead { font-size: 15px; color: var(--muted); max-width: 560px; line-height: 1.75; }
 
-/* PARTNER TIERS */
+/* PARTNERS */
 .partners-section { padding: 80px 0 96px; }
-.tier-label { font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); padding-bottom: 12px; border-bottom: 1px solid var(--border); margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
-.tier-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-.tier-accent { color: var(--accent); }
-
-/* PREMIUM PARTNERS */
-.partners-premium { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-bottom: 56px; }
-.partner-card-lg {
-  padding: 52px 48px; background: var(--surface);
-  display: flex; flex-direction: column; gap: 20px;
+.partners-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-bottom: 56px; }
+.partner-card {
+  padding: 40px 36px; background: var(--surface);
+  display: flex; flex-direction: column; gap: 16px;
   position: relative; overflow: hidden;
   transition: background 0.2s;
 }
-.partner-card-lg:hover { background: var(--surface-2); }
-.partner-card-lg::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
+.partner-card:hover { background: var(--surface-2); }
+.partner-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); opacity: 0; transition: opacity 0.2s; }
+.partner-card:hover::before { opacity: 1; }
 .partner-logo-placeholder {
-  width: 120px; height: 48px;
-  background: rgba(241,255,0,0.07);
-  border: 1px solid rgba(241,255,0,0.15);
+  width: 100px; height: 40px;
+  background: rgba(241,255,0,0.06);
+  border: 1px solid rgba(241,255,0,0.12);
   display: flex; align-items: center; justify-content: center;
 }
-.partner-logo-placeholder span { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); opacity: 0.6; }
-.partner-card-lg h3 { font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
-.partner-card-lg p { font-size: 14px; color: var(--muted); line-height: 1.7; max-width: 400px; }
-.partner-tag { display: inline-block; padding: 4px 10px; background: rgba(241,255,0,0.09); color: var(--accent); font-size: 9px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
-.partner-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; margin-top: auto; }
+.partner-logo-placeholder span { font-family: 'Oswald', sans-serif; font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); opacity: 0.5; }
+.partner-tag { display: inline-block; padding: 3px 9px; background: rgba(241,255,0,0.08); color: var(--accent); font-size: 9px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
+.partner-card h3 { font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
+.partner-card p { font-size: 13px; color: var(--muted); line-height: 1.75; flex: 1; }
+.partner-link { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.2s; margin-top: auto; }
 .partner-link:hover { color: var(--accent); }
 .partner-link svg { transition: transform 0.2s; }
 .partner-link:hover svg { transform: translateX(3px); }
-
-/* STANDARD PARTNERS */
-.partners-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-bottom: 56px; }
-.partner-card {
-  padding: 36px 32px; background: var(--surface);
-  display: flex; flex-direction: column; gap: 14px;
-  transition: background 0.2s;
-}
-.partner-card:hover { background: var(--surface-2); }
-.partner-logo-sm { width: 80px; height: 36px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
-.partner-logo-sm span { font-family: 'Oswald', sans-serif; font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-.partner-card h3 { font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
-.partner-card p { font-size: 13px; color: var(--muted); line-height: 1.7; }
-.partner-cat { font-size: 10px; color: var(--muted); font-family: 'Oswald', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; }
 
 /* BECOME PARTNER */
 .become-partner { margin-top: 80px; padding: 64px 56px; background: var(--surface); border: 1px solid var(--border); display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
@@ -89,7 +71,6 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
 .footer-bottom a { font-size: 11px; color: rgba(255,255,255,0.22); text-decoration: none; }
 
 @media (max-width: 1024px) {
-  .partners-premium { grid-template-columns: 1fr; }
   .partners-grid { grid-template-columns: 1fr 1fr; }
   .become-partner { grid-template-columns: 1fr; }
 }
@@ -150,9 +131,9 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
 <script>
 (function () {
   var DEFAULT = [
-    { id:'p1', nom:'Garage du Léman', categorie:'Garage officiel', niveau:'premium', description:'Partenaire technique officiel du club. Révisions, préparations piste, réglages — ils connaissent les Renault Sport mieux que personne dans la région.', url:'#' },
-    { id:'p2', nom:'Pneus Passion Léman', categorie:'Équipementier', niveau:'premium', description:'Spécialiste pneumatiques sport et piste. Tarifs préférentiels pour les membres sur l\'ensemble de la gamme performance. Montage et équilibrage inclus.', url:'#' },
-    { id:'p3', nom:'RS Detailing', categorie:'Carrosserie & Esthétique', niveau:'officiel', description:'Préparation et protection carrosserie, traitement céramique, lustrage professionnel. Tarif club –15 % sur présentation de votre carte membre.', url:'#' }
+    { id:'p1', nom:'Garage du Léman', categorie:'Garage officiel', description:'Partenaire technique officiel du club. Révisions, préparations piste, réglages — ils connaissent les Renault Sport mieux que personne dans la région.', url:'#' },
+    { id:'p2', nom:'Pneus Passion Léman', categorie:'Équipementier', description:'Spécialiste pneumatiques sport et piste. Tarifs préférentiels pour les membres sur l\'ensemble de la gamme performance. Montage et équilibrage inclus.', url:'#' },
+    { id:'p3', nom:'RS Detailing', categorie:'Carrosserie & Esthétique', description:'Préparation et protection carrosserie, traitement céramique, lustrage professionnel. Tarif club –15 % sur présentation de votre carte membre.', url:'#' }
   ];
 
   function load() {
@@ -161,40 +142,20 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
   }
 
   var partners = load();
-  var premium = partners.filter(function(p){ return p.niveau === 'premium'; });
-  var officiel = partners.filter(function(p){ return p.niveau !== 'premium'; });
+  var html = '<div class="partners-grid">';
 
-  var html = '';
-
-  if (premium.length) {
-    html += '<div class="tier-label"><span class="tier-accent">★</span> Partenaires Premium</div>';
-    html += '<div class="partners-premium" style="margin-bottom:56px;">';
-    premium.forEach(function(p) {
-      html += '<div class="partner-card-lg">'
-        + '<div class="partner-logo-placeholder"><span>Logo à fournir</span></div>'
-        + '<div><span class="partner-tag">' + p.categorie + '</span><h3>' + p.nom + '</h3></div>'
-        + '<p>' + p.description + '</p>';
-      if (p.url && p.url !== '#') {
-        html += '<a href="' + p.url + '" target="_blank" class="partner-link">Visiter le site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>';
-      }
-      html += '</div>';
-    });
+  partners.forEach(function(p) {
+    html += '<div class="partner-card">'
+      + '<div class="partner-logo-placeholder"><span>Logo à fournir</span></div>'
+      + '<div><span class="partner-tag">' + p.categorie + '</span><h3>' + p.nom + '</h3></div>'
+      + '<p>' + p.description + '</p>';
+    if (p.url && p.url !== '#') {
+      html += '<a href="' + p.url + '" target="_blank" class="partner-link">Visiter le site <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>';
+    }
     html += '</div>';
-  }
+  });
 
-  if (officiel.length) {
-    html += '<div class="tier-label">Partenaires Officiels</div>';
-    html += '<div class="partners-grid" style="margin-bottom:56px;">';
-    officiel.forEach(function(p) {
-      html += '<div class="partner-card">'
-        + '<div class="partner-logo-sm"><span>Logo</span></div>'
-        + '<div><div class="partner-cat">' + p.categorie + '</div><h3>' + p.nom + '</h3></div>'
-        + '<p>' + p.description + '</p>'
-        + '</div>';
-    });
-    html += '</div>';
-  }
-
+  html += '</div>';
   document.getElementById('partners-dynamic').innerHTML = html;
 })();
 </script>
@@ -202,7 +163,10 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
 <footer>
   <div class="footer-bottom">
     <p>© 2026 Léman Renault Sport · Association loi 1901</p>
-    <a href="#">Conditions générales</a>
+    <div style="display:flex;align-items:center;gap:24px;">
+      <a href="https://ig.me/m/lemanrenaultsport" target="_blank" rel="noopener">Instagram</a>
+      <a href="reglements.html#cg">Mentions légales</a>
+    </div>
   </div>
 </footer>
 </body>
