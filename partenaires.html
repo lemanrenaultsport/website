@@ -125,6 +125,7 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
   footer { padding: 28px 24px; }
 }
 </style>
+<link rel="stylesheet" href="mobile-nav.css">
 </head>
 <body>
 
@@ -133,14 +134,18 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
     <div class="logo-badge"><span>LRS</span></div>
     Léman Renault Sport
   </a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links">
     <li><a href="index.html">Accueil</a></li>
     <li><a href="calendrier.html">Calendrier</a></li>
     <li><a href="notre-structure.html">Le Club</a></li>
     <li><a href="reglements.html">Règlement</a></li>
     <li><a href="partenaires.html" class="active">Partenaires</a></li>
+    <li><a href="nous-rejoindre.html" class="nav-mobile-join">Nous Rejoindre</a></li>
   </ul>
   <a href="nous-rejoindre.html" class="nav-join">Nous Rejoindre</a>
+  <button class="nav-burger" type="button" aria-label="Ouvrir le menu" aria-controls="nav-links" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <div class="page-header" data-od-id="page-header">
@@ -259,5 +264,6 @@ footer { background: #040404; border-top: 1px solid var(--border); padding: 32px
     </div>
   </div>
 </footer>
+<script src="mobile-nav.js"></script>
 </body>
 </html>
